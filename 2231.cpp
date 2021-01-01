@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-int DigitCnt(int n)
+int DigitCnt(int n) // cal digits
 {
     int cnt = 0;
     while ( n > 0 )
@@ -12,7 +12,7 @@ int DigitCnt(int n)
     return cnt;
 }
 
-int DigitSum(int n)
+int DigitSum(int n) // add all digits
 {
     int sum = 0;
     int m = 10;
@@ -27,8 +27,8 @@ int DigitSum(int n)
 
 int Decomp(int n)
 {
-    int start = n - DigitCnt(n) * 9;
-    int dest = n - 1;
+    int start = n - DigitCnt(n) * 9; // Decomp of n can't be smaller than n - DigitCnt(n) * 9
+    int dest = n - 1; // also can't be bigger than n - 1
     for (int i = start; i <= dest; i++)
     {
         int result = i + DigitSum(i);
