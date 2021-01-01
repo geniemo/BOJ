@@ -3,21 +3,14 @@ using namespace std;
 
 bool BlockBuster(int n)
 {
-    int six_cnt = 0;
     int seq_cnt = 0;
     while (n > 0)
     {
-        if (n % 10 == 6)
-        {
-            six_cnt++;
+        if (n % 10 == 6) // if digit is 6
             seq_cnt++;
-        }
-        else
-        {
-            six_cnt = 0;
-            seq_cnt = 0;
-        }
-        if (six_cnt == 3 && seq_cnt == 3)
+        else // not six
+            seq_cnt = 0; // 6 should be successive
+        if (seq_cnt >= 3) // three "6" are successive -> "666"! blockbuster!
             return true;
         n /= 10;
     }
@@ -27,7 +20,7 @@ bool BlockBuster(int n)
 int main(void)
 {
     int n;
-    int num = 666;
+    int num = 666; // first blockbuster number
     int cnt = 0;
     cin >> n;
     
