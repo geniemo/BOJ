@@ -25,9 +25,9 @@ int DigitSum(int n) // add all digits
     return sum;
 }
 
-int Decomp(int n)
+int Constructor(int n)
 {
-    int start = n - DigitCnt(n) * 9; // Decomp of n can't be smaller than n - DigitCnt(n) * 9
+    int start = n - DigitCnt(n) * 9; // constructor of n can't be smaller than n - DigitCnt(n) * 9
     int dest = n - 1; // also can't be bigger than n - 1
     for (int i = start; i <= dest; i++)
     {
@@ -42,6 +42,6 @@ int main(void)
 {
     int n;
     cin >> n;
-    cout << Decomp(n);
+    cout << Constructor(n);
     return 0;
 }
