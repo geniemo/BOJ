@@ -20,6 +20,6 @@ int main(void)
     int N;
     cin >> N;
     cout << pinary(N);
-    printf("%lld", pinary(N));
+    printf("%lld", pinary(N)); // be cautious! long long's specifier is %lld!
     return 0;
 }
