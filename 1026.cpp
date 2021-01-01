@@ -27,6 +27,7 @@ int main(void)
     sort(v1.begin(), v1.end());
     // sort v2 descending order
     sort(v2.begin(), v2.end(), greater<int>());
+    // multiply all values in the vector v1 and v2
     for (int i = 0; i < N; i++)
         S += (v1[i] * v2[i]);
     printf("%d", S);
