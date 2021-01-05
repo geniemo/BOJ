@@ -12,7 +12,7 @@ int tile(int n)
         tile[0] = tile[1];
         tile[1] = next;
     }
-    return tile[1];
+    return tile[1]; 
 }
 
 
