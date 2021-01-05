@@ -13,7 +13,6 @@ void clear(std::queue<int> &q)
 
 int main(void)
 {
-    int coinMemo[10001] = {0, };
     int n, k; // n: kind of coin, k: won
     scanf(" %d %d", &n, &k);
     set<int, greater<int>> coins; // insert following descending order
@@ -27,6 +26,7 @@ int main(void)
     int min = 10001;
     for (set<int, greater<int>>::const_iterator i = coins.begin(); i != coins.end(); i++)
     {
+        int coinMemo[10001] = {0, };
         queue<int> q;
         q.push(*i); coinMemo[*i] = 1;
         while (!q.empty())
@@ -40,7 +40,7 @@ int main(void)
 
             for (set<int, greater<int>>::const_iterator c = coins.begin(); c != coins.end(); c++)
             {
-                if (cur + *c <= k)
+                if (cur + *c <= k && coinMemo[cur + *c] == 0)
                 {
                     q.push(cur + *c);
                     coinMemo[cur + *c] = coinMemo[cur] + 1;
