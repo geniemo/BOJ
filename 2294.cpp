@@ -5,6 +5,12 @@
 #include <functional>
 using namespace std;
 
+void clear(std::queue<int> &q)
+{
+   queue<int> empty;
+   swap(q, empty);
+}
+
 int main(void)
 {
     int coinMemo[10001] = {0, };
@@ -18,6 +24,7 @@ int main(void)
         if (coin <= k) coins.insert(coin);
     }
 
+    int min = 10001;
     for (set<int, greater<int>>::const_iterator i = coins.begin(); i != coins.end(); i++)
     {
         queue<int> q;
@@ -27,9 +34,10 @@ int main(void)
             int cur = q.front(); q.pop();
             if (cur == k)
             {
-                printf("%d", coinMemo[cur]);
-                return 0;
+                min = (coinMemo[cur] < min) ? coinMemo[cur] : min;
+                break;
             }
+
             for (set<int, greater<int>>::const_iterator c = coins.begin(); c != coins.end(); c++)
             {
                 if (cur + *c <= k)
@@ -39,7 +47,12 @@ int main(void)
                 }
             }
         }
+        clear(q);
     }
-    printf("-1");
+
+    if (min == 10001) // no way to make k won
+        printf("-1");
+    else
+        printf("%d", min);
     return 0;
 }
