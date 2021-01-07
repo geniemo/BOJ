@@ -39,7 +39,7 @@ int main(void)
 
                     for (int k = 0; k < N; k++)
                     {
-                        if (org[cur][k] == 1 && des[i][k] == false) // can go cur to k, 
+                        if (org[cur][k] == 1 && des[i][k] == false) // can go cur to k, not visit k-th row yet
                             q.push(k);
                     }
                 }
