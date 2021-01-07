@@ -22,5 +22,7 @@ int main(void)
     }
 
     printf("%d", maxMemo[N]);
+    delete[] price;
+    delete[] maxMemo;
     return 0;
 }
