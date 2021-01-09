@@ -28,7 +28,7 @@ int main(void)
             temp.push_back(0);
         sort(temp.begin(), temp.end()); // sort for get all permutation
 
-        do // ignore overlap loop
+        do // get sum of partial seq that size is i ignoring overlap
         {
             int sum = 0;
             for (int j = 0; j < N; j++)
