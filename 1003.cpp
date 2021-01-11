@@ -7,8 +7,8 @@ int main(void)
     pair<int, int> cnt[static_cast<const int>(41)];
     cnt[0] = {1, 0};
     cnt[1] = {0, 1};
-    for (int j = 2; j <= 40; j++)
-        cnt[j] = {cnt[j - 1].first + cnt[j - 2].first, cnt[j - 1].second + cnt[j - 2].second};
+    for (int i = 2; i <= 40; i++)
+        cnt[i] = {cnt[i - 1].first + cnt[i - 2].first, cnt[i - 1].second + cnt[i - 2].second};
 
     int T;
     scanf(" %d", &T);
