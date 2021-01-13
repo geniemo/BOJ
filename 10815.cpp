@@ -6,7 +6,7 @@ int main(void)
 {
     int N;
     scanf(" %d", &N);
-    int cards[static_cast<const int>(N)];
+    int cards[500000];
     for (int i = 0; i < N; i++)
         scanf(" %d", &cards[i]);
     sort(cards, cards + N);
