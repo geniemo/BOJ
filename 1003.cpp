@@ -4,7 +4,7 @@ using namespace std;
 
 int main(void)
 {
-    pair<int, int> cnt[static_cast<const int>(41)];
+    pair<int, int> cnt[41];
     cnt[0] = {1, 0};
     cnt[1] = {0, 1};
     for (int i = 2; i <= 40; i++)
