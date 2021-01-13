@@ -16,9 +16,9 @@ int main(void)
             int tmp = 1 + cnt[i - (j * j)];
             minimum = min(tmp, minimum);
         }
-        cnt[i] = minimum;    
+        cnt[i] = minimum;
     }
     printf("%d", cnt[N]);
-    
+
     return 0;
 }
