@@ -7,7 +7,7 @@ int main(void)
 {
     int N;
     scanf(" %d", &N);
-    int cnt[static_cast<const int>(N + 1)] = {0, 1, };
+    int cnt[100001] = {0, 1, };
     for (int i = 2; i <= N; i++)
     {
         int minimum = 0x7fffffff;
@@ -19,5 +19,6 @@ int main(void)
         cnt[i] = minimum;    
     }
     printf("%d", cnt[N]);
+    
     return 0;
 }
