@@ -22,7 +22,7 @@ int main(void)
                     cnt = cnt_;
             }
     }
-    
+     
     switch (cnt)
     {
     case 3:
