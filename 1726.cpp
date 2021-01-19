@@ -1,6 +1,5 @@
 #include <iostream>
 #include <queue>
-#include <vector>
 #include <utility>
 #include <algorithm>
 #define PAIR pair<pair<int, int>, int>
