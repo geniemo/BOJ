@@ -26,7 +26,7 @@ int main(void)
                 {
                     sum++;
                     row[i]++;
-                    col[j]++;
+                    col[j]++; 
                 }
                 num /= 10;
             }
