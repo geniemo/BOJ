@@ -20,4 +20,4 @@ int main(void)
     if (N != 1)
         printf("%d\n", N);
     return 0;
-}
+} 
