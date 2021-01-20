@@ -6,8 +6,6 @@
 #define Y second
 using namespace std;
 
-
-
 int N;
 int map[20][20];
 int depth[20][20];
