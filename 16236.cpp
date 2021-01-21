@@ -24,13 +24,13 @@ void ClearDepth()
 
 struct cmp
 {
-    bool operator()(pair<int, int>& a, pair<int, int>& b) // b가 더 우선순위가 높은가?
+    bool operator()(pair<int, int>& a, pair<int, int>& b)
     {
-        if (depth[b.X][b.Y] != depth[a.X][a.Y]) // 새로 push된 것과 거리가 다르다면
+        if (depth[b.X][b.Y] != depth[a.X][a.Y]) // 거리가 다르다면
             return depth[b.X][b.Y] < depth[a.X][a.Y]; // 가까울수록 우선순위가 높다
-        else// 새로 push된 것과 거리가 같다면
+        else// 거리가 같다면
         {
-            if (b.X != a.X) // 새로 push된 것과 x좌표가 다르다면
+            if (b.X != a.X) // x좌표가 다르다면
                 return b.X < a.X; // 더 위에 있는 것이 우선순위가 높다
             else // x좌표도 같다면
                 return b.Y < a.Y; // 더 왼쪽에 있는 것이 우선순위가 높다
@@ -60,12 +60,13 @@ int main(void)
         }
     }
 
-    while (1)
+    bool isRemain = true;
+    while (isRemain)
     {
         ClearDepth();
+        isRemain = false;
 
         priority_queue<pair<int, int>, vector<pair<int, int>>, cmp> pq;
-        int sx_ = sx, sy_ = sy;
         depth[sx][sy] = 1;
         pq.push({sx, sy}); // 물고기를 먹고 난 다음의 상어의 위치를 push, BFS 사용
         while (!pq.empty())
@@ -85,6 +86,7 @@ int main(void)
                         ate = 0;
                     }
                     time += depth[cur.X][cur.Y] - 1;
+                    isRemain = true;
                     break;
                 }
             }
@@ -103,11 +105,7 @@ int main(void)
                 }
             }
         }
-        if (sx_ == sx && sy_ == sy) // 더이상 먹을 물고기가 없다면 종료
-        {
-            cout << time;
-            break;
-        }
     }
+    cout << time;
     return 0;
 }
