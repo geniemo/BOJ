@@ -1,9 +1,7 @@
 #include <iostream>
-#include <stack>
 #include <queue>
 #include <vector>
 #include <algorithm>
-#include <functional>
 #define PAIR pair<pair<int, int>, int>
 #define LOC first
 #define X first
