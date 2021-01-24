@@ -37,20 +37,19 @@ int main(void)
 
     for (int i = 0; i < n * n; i++)
     {
-        PAIR cur = bam[i];
         int tmp = 0;
         for (int j = 0; j < 4; j++)
         {
-            int nx = cur.LOC.X + dx[j];
-            int ny = cur.LOC.Y + dy[j];
+            int nx = bam[i].LOC.X + dx[j];
+            int ny = bam[i].LOC.Y + dy[j];
             if (0 <= nx && nx < n && 0 <= ny && ny < n)
             {
-                if (map[nx][ny] > cur.BAM) // 주변에 지금 위치보다 더 많은 대나무가 있는 곳이 있다면
+                if (map[nx][ny] > bam[i].BAM) // 주변에 지금 위치보다 더 많은 대나무가 있는 곳이 있다면
                     tmp = max(dp[nx][ny], tmp); // 그 방향으로 가는 것이 현명한지 판단
             }
         }
-        dp[cur.LOC.X][cur.LOC.Y] = 1 + tmp;
-        day = max(dp[cur.LOC.X][cur.LOC.Y], day);
+        dp[bam[i].LOC.X][bam[i].LOC.Y] = 1 + tmp;
+        day = max(dp[bam[i].LOC.X][bam[i].LOC.Y], day);
     }
     cout << day;
     
