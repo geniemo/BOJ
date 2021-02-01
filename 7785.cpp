@@ -1,14 +1,13 @@
 #include <iostream>
-#include <unordered_map>
-#include <vector>
+#include <map>
+#include <utility>
 #include <string>
-#include <algorithm>
+#include <functional>
 using namespace std;
 
 int n;
 string name, act;
-unordered_map<string, int> empl;
-vector<string> sortedEmpl;
+map<string, int, greater<string>> empl;
 
 int main(void)
 {
@@ -27,9 +26,6 @@ int main(void)
     }
 
     for (pair<string, int> elem : empl)
-        sortedEmpl.push_back(elem.first);
-    sort(sortedEmpl.begin(), sortedEmpl.end(), greater<string>()); // 사전 역순
-    for (string s : sortedEmpl)
-        cout << s << '\n';
+        cout << elem.first << '\n';
     return 0;
 }
