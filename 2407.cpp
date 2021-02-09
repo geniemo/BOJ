@@ -23,7 +23,7 @@ string add(string num1, string num2) {
 }
 
 string comb(int n, int m) {
-    if (n == 0 || n == m)
+    if (m == 0 || n == m)
         return "1";
     if (dp[n][m] != "")
         return dp[n][m];
