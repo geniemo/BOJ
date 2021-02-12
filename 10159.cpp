@@ -7,7 +7,7 @@ unordered_set<int> heavyDp[101];
 vector<int> light[101];
 unordered_set<int> lightDp[101];
 
-// i번째 물건보다 무거워야 하는 물건의 개수를 반환
+// i번째 물건보다 무거운 것들을 heavpDp[i]에 저장
 void heavy_dfs(int i) {
     if (heavy[i].empty() || !heavyDp[i].empty())
         return;
@@ -17,7 +17,7 @@ void heavy_dfs(int i) {
         heavyDp[i].insert(heavyDp[j].begin(), heavyDp[j].end());
     }
 }
-// i번째 물건보다 가벼워야 하는 물건의 개수를 반환
+// i번째 물건보다 가벼운 것들을 lightDp[i]에 저장
 void light_dfs(int i) {
     if (light[i].empty() || !lightDp[i].empty())
         return;
