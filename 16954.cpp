@@ -13,11 +13,9 @@ int dy[] = {0, -1, 0, 1, -1, 1, -1, 0, 1};
 void move() {
     vector<PAIR> nWall;
     for (PAIR pos : wall) {
-        if (pos.X <= 7) {
-            maze[pos.X][pos.Y] = '.';
-            if (pos.X + 1 <= 7)
-                nWall.push_back({pos.X + 1, pos.Y});
-        }
+        maze[pos.X][pos.Y] = '.';
+        if (pos.X + 1 <= 7)
+            nWall.push_back({pos.X + 1, pos.Y});
     }
     for (PAIR pos : nWall)
         maze[pos.X][pos.Y] = '#';
