@@ -12,8 +12,14 @@ int visit[1000][1000];
 int dx[] = {0, 0, 1, -1};
 int dy[] = {1, -1, 0, 0}; // 오 왼 아 위
 
+struct pair_hash {
+    size_t operator()(const PAIR& tmp) const {
+        return tmp.X * 31 + tmp.Y;
+    }
+};
+
 void bfs(int i, int j) {
-    set<PAIR> wall;
+    unordered_set<PAIR, pair_hash> wall;
     int cnt = 0;
     queue<PAIR> q;
     visit[i][j] = 1;
