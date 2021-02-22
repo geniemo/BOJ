@@ -9,15 +9,13 @@ int n;
 string name, act;
 map<string, int, greater<string>> empl;
 
-int main(void)
-{
+int main(void) {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);
 
     cin >> n;
-    for (int i = 0; i < n; i++)
-    {
+    for (int i = 0; i < n; i++) {
         cin >> name >> act;
         if (act == "enter")
             empl.insert({name, 1});
