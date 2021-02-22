@@ -1,12 +1,9 @@
-#include <iostream>
-#include <stack>
-#include <queue>
+#include <bits/stdc++.h>
 using namespace std;
-#define MAX_VALUE   1001
 
 int N, M, V;
-int mat[MAX_VALUE][MAX_VALUE]; // adjacency matrix
-int visit[MAX_VALUE];
+int mat[1001][1001]; // adjacency matrix
+int visit[1001];
 
 void DFS(int v)
 {
@@ -17,8 +14,8 @@ void DFS(int v)
     {
         v = s.top(); s.pop();
         if (visit[v] == 1) continue;
-        else visit[v] = 1;
-        printf("%d ", v);
+        visit[v] = 1;
+        cout << v << ' ';
 
         for (int i = N; i >= 1; i--)
         {
@@ -32,35 +29,37 @@ void DFS(int v)
 void BFS(int v)
 {
     queue<int> q;
-    q.push(v);
     visit[v] = 0;
+    q.push(v);
 
     while (!q.empty())
     {
         v = q.front(); q.pop();
-        printf("%d ", v);
+        cout << v << ' ';
         for (int i = 1; i <= N; i++)
         {
             if (visit[i] == 0 || mat[v][i] == 0)
                 continue;
-            q.push(i);
             visit[i] = 0;
+            q.push(i);
         }
     }
 }
 
 int main(void)
 {
-    int x;
-    int y;
-    scanf(" %d %d %d", &N, &M, &V);
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+    cin >> N >> M >> V;
     for (int i = 0; i < M; i++)
     {
-        scanf(" %d %d", &x, &y);
+        int x, y;
+        cin >> x >> y;
         mat[x][y] = mat[y][x] = 1;
     }
     DFS(V);
-    printf("\n");
+    cout << '\n';
     BFS(V);
     return 0;
 }
