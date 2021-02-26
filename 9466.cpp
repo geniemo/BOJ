@@ -3,7 +3,7 @@ using namespace std;
 
 int st[100001];
 int team[100001]; // 0: not yet visited, 1: visited, 2: have a team
-
+ 
 void dfs(int id) {
     if (st[id] == id) {
         team[id] = 2;
