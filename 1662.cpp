@@ -45,8 +45,10 @@ int main(void) {
 			tmp += c;
 		}
 	}
-	while (!s.empty())
+	while (!s.empty()) {
 		res += s.top();
+		s.pop();
+	}
 	cout << res;
 	return 0;
 }
