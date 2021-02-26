@@ -3,6 +3,9 @@ using namespace std;
 
 string str;
 int res;
+stack<int> s;
+string tmp;
+int mul = 1;
 
 int main(void) {
 	ios::sync_with_stdio(false);
@@ -10,45 +13,24 @@ int main(void) {
 	cout.tie(nullptr);
 	
 	cin >> str;
-	string tmp;
-	stack<int> s;
 	for (char c : str) {
 		if (c == '(') {
-			if (!tmp.empty()) {
-				s.push(stoi(tmp));
-				tmp.clear();
-			}
-			s.push(c);
+			res += mul * (tmp.length() - 1);
+			s.push(tmp.back() - '0');
+			mul *= tmp.back() - '0';
+			tmp.clear();
 		}
 		else if (c == ')') {
-			if (s.top() == '(') {
-				s.pop();
-				s.top() = s.top() * tmp.length();
-				tmp.clear();
-			}
-			else { // s.top() is digit
-				int t = s.top() + tmp.length();
-				s.pop();
-				s.pop();
-				tmp.clear();
-				while (!s.empty() && s.top() != '(') {
-					t *= s.top();
-					s.pop();
-				}
-				if (s.empty())
-					res += t;
-				else
-					s.push(t);
-			}
+			res += mul * tmp.length();
+			mul /= s.top();
+			s.pop();
+			tmp.clear();
 		}
 		else { // c is digit
 			tmp += c;
 		}
 	}
-	while (!s.empty()) {
-		res += s.top();
-		s.pop();
-	}
+	res += tmp.length();
 	cout << res;
 	return 0;
 }
