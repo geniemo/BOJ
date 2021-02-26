@@ -5,7 +5,6 @@ string str;
 int res;
 stack<int> s;
 string tmp;
-int mul = 1;
 
 int main(void) {
 	ios::sync_with_stdio(false);
@@ -13,16 +12,15 @@ int main(void) {
 	cout.tie(nullptr);
 	
 	cin >> str;
+	s.push(1);
 	for (char c : str) {
 		if (c == '(') {
-			res += mul * (tmp.length() - 1);
-			s.push(tmp.back() - '0');
-			mul *= tmp.back() - '0';
+			res += s.top() * (tmp.length() - 1);
+			s.push(s.top() * (tmp.back() - '0'));
 			tmp.clear();
 		}
 		else if (c == ')') {
-			res += mul * tmp.length();
-			mul /= s.top();
+			res += s.top() * tmp.length();
 			s.pop();
 			tmp.clear();
 		}
