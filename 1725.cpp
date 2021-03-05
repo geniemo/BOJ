@@ -1,6 +1,4 @@
 #include <bits/stdc++.h>
-#define H first
-#define X second
 using namespace std;
 
 int N;
