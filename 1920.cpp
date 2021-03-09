@@ -1,25 +1,27 @@
 #include <iostream>
-#include <map>
 using namespace std;
+
+int N, M;
+int arr[100001];
 
 int main(void)
 {
-    int N;
-    scanf(" %d", &N);
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
 
-    map<int, bool> A;
-    for (int i = 0; i < N; i++)
-    {
-        int num; scanf(" %d", &num);
-        A[num] = true;
+    cin >> N;
+    for (int i = 0; i < N; i++) {
+        int num;
+        cin >> num;
+        arr[num] = 1;
     }
 
-    int M;
-    scanf(" %d", &M);
-    for (int i = 0; i < M; i++)
-    {
-        int num; scanf(" %d", &num);
-        printf("%d\n", A[num]);
+    cin >> M;
+    for (int i = 0; i < M; i++) {
+        int num;
+        cin >> num;
+        cout << arr[num] << '\n';
     }
     return 0;
 }
