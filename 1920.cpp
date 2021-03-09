@@ -1,8 +1,5 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
-
-int N, M;
-int arr[100001];
 
 int main(void)
 {
@@ -10,18 +7,22 @@ int main(void)
     cin.tie(nullptr);
     cout.tie(nullptr);
 
+    int N;
     cin >> N;
+
+    unordered_map<int, int> A;
     for (int i = 0; i < N; i++) {
         int num;
         cin >> num;
-        arr[num] = 1;
+        A[num] = 1;
     }
 
+    int M;
     cin >> M;
     for (int i = 0; i < M; i++) {
-        int num;
+        int num; 
         cin >> num;
-        cout << arr[num] << '\n';
+        cout << A[num] << '\n';
     }
     return 0;
 }
