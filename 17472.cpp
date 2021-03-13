@@ -21,20 +21,6 @@ int res;
 int dx[] = {0, 0, 1, -1};
 int dy[] = {1, -1, 0, 0}; // 오 왼 아 위
 
-bool cmp(PI3& a, PI3& b) {
-    return a.DIST < b.DIST;
-}
-
-// for test
-void Print() {
-    for (int i = 0; i < N; i++) {
-        for (int j = 0; j < M; j++)
-            cout << field[i][j] << ' ';
-        cout << '\n';
-    }
-    cout << '\n';
-}
-
 // 각 섬에 번호를 붙인다.
 void setID() {
     queue<PI2> q;
@@ -91,6 +77,9 @@ bool isCycle(int st, int en) {
         return true;
     return false;
 }
+bool cmp(PI3& a, PI3& b) {
+    return a.DIST < b.DIST;
+}
 void makeBridge() {
     for (int i = 0; i < N; i++) {
         for (int j = 0; j < M; j++) {
@@ -106,8 +95,8 @@ void makeBridge() {
                     s.pop();
                     // 다른 섬에 도달했다면 bridge 정보를 저장
                     if (1 <= field[cur.LOC.X][cur.LOC.Y] && field[cur.LOC.X][cur.LOC.Y] <= 6 && field[cur.LOC.X][cur.LOC.Y] != field[i][j]) {
-                        int dist = abs((i - cur.LOC.X) + (j - cur.LOC.Y)) - 1;
-                        if (dist > 1)
+                        int dist = abs((i - cur.LOC.X) + (j - cur.LOC.Y)) - 1; // 다리의 길이
+                        if (dist > 1) // 다리의 길이는 1보다 길어야 한다.
                             bridge.push_back({{field[i][j], field[cur.LOC.X][cur.LOC.Y]}, dist});
                         continue;
                     }
