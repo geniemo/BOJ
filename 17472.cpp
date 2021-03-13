@@ -12,7 +12,6 @@ using namespace std;
 
 int N, M;
 int field[10][10];
-vector<PI3> bridge;
 int islCnt;
 int parent[7] = {0, 1, 2, 3, 4, 5, 6};
 int depth[7];
@@ -81,6 +80,7 @@ bool cmp(PI3& a, PI3& b) {
     return a.DIST < b.DIST;
 }
 void makeBridge() {
+    vector<PI3> bridge;
     for (int i = 0; i < N; i++) {
         for (int j = 0; j < M; j++) {
             if (field[i][j] != 0) {
