@@ -7,7 +7,7 @@ using namespace std;
 using ll = long long;
 
 int N;
-ll arr[100001];
+ll arr[100001] = {0x7fffffff};
 PAIR tree[100001 * 4]; // 구간의 합, 최소와 최소의 인덱스를 저장
 
 PAIR init(int node, int st, int en) {
@@ -21,7 +21,7 @@ PAIR init(int node, int st, int en) {
 
 PAIR getSumAndMinIdx(int node, int st, int en, int l, int r) {
     if (en < l || r < st)
-        return {0, -1};
+        return {0, 0};
     if (l <= st && en <= r)
         return {tree[node].SUM, tree[node].MIN_IDX};
     int mid = (st + en) / 2;
