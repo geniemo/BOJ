@@ -29,13 +29,8 @@ int main(void) {
     cout.tie(nullptr);
 
     cin >> N;
-    for (int i = 0; i < N; i++) {
+    for (int i = 0; i < N; i++)
         cin >> word[i];
-        for (char c : word[i]) {
-            if (m.find(c) == m.end())
-                m.insert({c, 0});
-        }
-    }
     setPriority();
     int tmp = 9;
     for (int i : v)
