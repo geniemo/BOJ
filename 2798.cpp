@@ -36,4 +36,3 @@ int main(void)
     cout << largest;
     return 0;
 }
-
