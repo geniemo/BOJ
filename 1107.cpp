@@ -7,13 +7,11 @@ vector<int> button = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
 int mn;
 
 void calMin(int cur, int cnt) {
-    if (cur > N)
-        return;
     int next;
     for (auto i : button) {
         next = 10 * cur + i;
         mn = min(mn, abs(N - next) + cnt + 1);
-        if (next != 0)
+        if (next != 0 && next < N)
             calMin(next, cnt + 1);
     }
 }
