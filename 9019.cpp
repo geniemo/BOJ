@@ -69,4 +69,4 @@ int main(void) {
         minCommand();
     }
     return 0;
-} 
+}
