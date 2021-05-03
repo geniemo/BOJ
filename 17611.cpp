@@ -28,7 +28,7 @@ int main(void) {
     for (int i = 1; i < n; i++) {
         tmp = cur;
         cin >> cur.X >> cur.Y;
-        // 이전 점과 수평선을 만든다면 horV에, 아니라면 verV에
+        // 이전 점과 수평선을 만든다면 sumY에, 아니라면 sumX에
         if (tmp.X == cur.X) {
             sumY[min(tmp.Y + 500000, cur.Y + 500000)]++;
             sumY[max(tmp.Y + 500000, cur.Y + 500000)]--;
