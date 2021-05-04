@@ -10,24 +10,24 @@ using namespace std;
 int N;
 ti5 mn;
 ti5 food[20];
-int visited;
+int visited[20];
 int res = 0x7f7f7f7f;
-int res_use;
+int res_use[20];
 
 void dfs(ti5 cur, int idx) {
     if (c(cur) >= res)
         return;
     if (p(cur) >= p(mn) && f(cur) >= f(mn) && s(cur) >= s(mn) && v(cur) >= v(mn) && c(cur) < res) {
         res = c(cur);
-        res_use = visited;
+        memcpy(res_use, visited, sizeof(visited));
         return;
     }
 
     for (int i = idx; i <= N; i++) {
-        if ((visited >> i) & 1) continue;
-        visited |= (1 << i);
+        if (visited[i]) continue;
+        visited[i] = 1;
         dfs({p(cur) + p(food[i]), f(cur) + f(food[i]), s(cur) + s(food[i]), v(cur) + v(food[i]), c(cur) + c(food[i])}, i + 1);
-        visited &= ~(1 << i);
+        visited[i] = 0;
     }
 }
 
@@ -38,7 +38,7 @@ void print() {
     }
     cout << res << "\n";
     for (int i = 1; i <= N; i++) {
-        if ((res_use >> i) & 1)
+        if (res_use[i])
             cout << i << " ";
     }
 }
