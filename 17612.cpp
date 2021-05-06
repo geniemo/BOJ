@@ -9,7 +9,7 @@ using namespace std;
 // 줄 세울 때
 struct cmp_in {
     bool operator()(ti3& a, ti3& b) {
-        // 대기시간이 같으면 카운터 번호 빠른 순으로 줄세움
+        // 대기시간이 같으면 카운터 번호 낮은 순으로 줄세움
         if (W(a) == W(b)) {
             return C(b) < C(a);
         }
