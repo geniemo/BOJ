@@ -13,15 +13,15 @@ vector<PAIR> child[100'005];
 ll res;
 
 ll dfs(int cur, int parent) {
-    ll sub = 1, acc;
+    ll acc = 1, sub;
     for (auto c : child[cur]) {
         if (c.DST == parent)
             continue;
-        acc = dfs(c.DST, cur) * c.W % mod;
-        res = (res + acc * sub) % mod;
-        sub = (sub + acc) % mod;
+        sub = dfs(c.DST, cur) * c.W % mod;
+        res = (res + sub * acc) % mod;
+        acc = (acc + sub) % mod;
     }
-    return sub;
+    return acc;
 }
 
 int main(void) {
