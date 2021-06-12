@@ -21,7 +21,7 @@ bool dfs(int idx) {
 int b_match() {
     memset(b, -1, sizeof(b));
     int cnt = 0;
-    for (int i = 0; i < N; i++) {
+    for (int i = 1; i <= N; i++) {
         memset(visited, 0, sizeof(visited));
         if (dfs(i)) cnt++;
     }
@@ -34,7 +34,7 @@ int main(void) {
     cout.tie(nullptr);
 
     cin >> N >> M;
-    for (int i = 0; i < N; i++) {
+    for (int i = 1; i <= N; i++) {
         int t, w;
         cin >> t;
         while (t--) {
