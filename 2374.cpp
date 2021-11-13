@@ -3,7 +3,7 @@ using namespace std;
 
 int n;
 int A[1001];
-int cnt;
+long long cnt;
 
 void getAddCnt(int st, int en, int beforeMx) {
     int mx = *max_element(A + st, A + en);
