@@ -1,5 +1,19 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
+
+int n;
+int x;
+map<int, int> m;
+int cnt;
+
+void sol() {
+    for (auto e : m) {
+        int target = x - e.first;
+        if (m[e.first] == 2 || target <= 0 || target == e.first || m.find(x - e.first) == m.end()) continue;
+        m[e.first] = m[x - e.first] = 2;
+        cnt++;
+    }
+}
 
 int main(void)
 {
@@ -7,24 +21,13 @@ int main(void)
     cin.tie(nullptr);
     cout.tie(nullptr);
 
-    int n;
-    int a[1000001] = {0, };
-    int x;
-    int cnt = 0;
-    
     cin >> n;
-    for (int i = 0; i < n; i++)
-    {
-        int a_i; cin >> a_i;
-        a[a_i] = 1;
+    for (int i = 0; i < n; i++) {
+        int num; cin >> num;
+        m[num] = 1;
     }
-
     cin >> x;
-    for (int i = 1; i < static_cast<double>(x) / 2; i++)
-    {
-        if (a[i] && a[x - i])
-            cnt++;
-    }   
+    sol();
     cout << cnt;
     return 0;
 }
