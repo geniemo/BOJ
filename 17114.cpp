@@ -1,3 +1,7 @@
+/*
+BOJ 17114: 하이퍼 토마토
+*/
+
 #include <bits/stdc++.h>
 #define ti11    tuple<int, int, int, int, int, int, int, int, int, int, int>
 #define D0      get<0>
