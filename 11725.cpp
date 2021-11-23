@@ -1,3 +1,7 @@
+/*
+BOJ 11725: 트리의 부모 찾기
+*/
+
 #include <bits/stdc++.h>
 using namespace std;
 
