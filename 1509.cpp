@@ -7,7 +7,7 @@ using namespace std;
 
 string str;
 int dp[2505][2505];
-int visited[2505];
+int depth[2505];
 
 void sol1() {
     for (int i = 0; i < str.length(); i++) {
@@ -24,24 +24,19 @@ void sol1() {
 
 void sol2() {
     queue<int> q;
-    int cnt = 0;
-    visited[0] = 1;
+    depth[0] = 1;
     q.push(0);
     while (!q.empty()) {
-        int sz = q.size();
-        while (sz--) {
-            int cur = q.front(); q.pop();
-            if (cur >= str.length()) {
-                cout << cnt;
-                return;
-            }
-            for (int i = cur; i < str.length(); i++) {
-                if (dp[cur][i] == 0 || visited[i + 1]) continue;
-                visited[i + 1] = 1;
-                q.push(i + 1);
-            }
+        int cur = q.front(); q.pop();
+        if (cur >= str.length()) {
+            cout << depth[cur] - 1;
+            return;
         }
-        cnt++;
+        for (int i = cur; i < str.length(); i++) {
+            if (dp[cur][i] == 0 || depth[i + 1]) continue;
+            depth[i + 1] = depth[cur] + 1;
+            q.push(i + 1);
+        }
     }
 }
 
