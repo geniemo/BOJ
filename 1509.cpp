@@ -1,3 +1,7 @@
+/*
+BOJ 1509: 팰린드롬 분할
+*/
+
 #include <bits/stdc++.h>
 using namespace std;
 
