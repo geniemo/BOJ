@@ -1,3 +1,7 @@
+/*
+BOJ 1208: 부분수열의 합 2
+*/
+
 #include <bits/stdc++.h>
 using namespace std;
 
